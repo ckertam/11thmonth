@@ -41,7 +41,7 @@ function createPetals() {
 
 function createFloatingHearts() {
     const container = document.getElementById('hearts-container');
-    const hearts = ['💕', '💗', '💖', '🤍', '💛'];
+    const hearts = ['🤍', '🩶', '🤎', '🤍', '❤️'];
 
     function spawnHeart() {
         const heart = document.createElement('div');
@@ -113,7 +113,7 @@ function setupFlowerInteractions() {
 
 function burstHearts(element) {
     const rect = element.getBoundingClientRect();
-    const hearts = ['❤️', '💕', '💖', '🤍'];
+    const hearts = ['❤️', '🤍', '🩶', '🤎'];
 
     for (let i = 0; i < 6; i++) {
         const heart = document.createElement('div');
