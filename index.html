@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. Ay Dönümümüz 💐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="petal-container"></div>
+    <div id="hearts-container"></div>
+
+    <!-- Landing Section -->
+    <section class="landing" id="landing">
+        <div class="landing-content">
+            <div class="date-badge">20 Mart 2026</div>
+            <h1 class="title">
+                <span class="title-line">11. Ay</span>
+                <span class="title-line accent">Dönümümüz</span>
+            </h1>
+            <div class="flower-divider">
+                <span>✿</span><span>❀</span><span>✿</span>
+            </div>
+            <p class="subtitle">Sana çiçek yollayamadığım bu ayda,<br>bu dijital bahçeyi senin için hazırladım.</p>
+            <button class="scroll-btn" onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+                <span>Aşağı Kaydır</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section" id="message">
+        <div class="message-card reveal">
+            <div class="card-flower top-left">🌸</div>
+            <div class="card-flower top-right">🌷</div>
+            <div class="card-flower bottom-left">🌺</div>
+            <div class="card-flower bottom-right">🌹</div>
+            <h2>Sevgilim,</h2>
+            <p>
+                11 aydır her günüm seninle daha güzel. Her ay sana çiçek göndermek benim en sevdiğim geleneğimizdi, 
+                ama bu ay Ankara'da olduğun için yollayamıyorum.
+            </p>
+            <p>
+                O yüzden bu küçük dijital bahçeyi senin için hazırladım. 
+                Ekranında yağan her yaprak, sana gönderemediğim her çiçeğin yerine.
+            </p>
+            <p class="highlight">
+                Seninle geçirdiğim her an, her gün, her ay — hayatımın en güzel hediyesi.
+            </p>
+            <p class="signature">Seni çok seviyorum ❤️</p>
+        </div>
+    </section>
+
+    <!-- Months Counter -->
+    <section class="counter-section" id="counter">
+        <div class="counter-wrapper reveal">
+            <h2>Birlikte Geçen</h2>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <span class="counter-number" data-target="11">0</span>
+                    <span class="counter-label">Ay</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-target="334">0</span>
+                    <span class="counter-label">Gün</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-target="8016">0</span>
+                    <span class="counter-label">Saat</span>
+                </div>
+            </div>
+            <p class="counter-note">...ve daha nice aylara, yıllara 🤍</p>
+        </div>
+    </section>
+
+    <!-- Bouquet Section -->
+    <section class="bouquet-section" id="bouquet">
+        <div class="bouquet-wrapper reveal">
+            <h2>Sana Dijital Bir Buket 💐</h2>
+            <p class="bouquet-subtitle">Her çiçeğe dokun ve mesajını oku</p>
+            <div class="bouquet">
+                <div class="flower" data-msg="Gülüşün güneş gibi ☀️" style="--delay: 0s; --hue: 340">
+                    <div class="flower-head">🌹</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Sesinle huzur buluyorum 🎵" style="--delay: 0.1s; --hue: 280">
+                    <div class="flower-head">🌷</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Her anımız bir hazine 💎" style="--delay: 0.2s; --hue: 320">
+                    <div class="flower-head">🌸</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Dünyam seninle güzel 🌍" style="--delay: 0.3s; --hue: 20">
+                    <div class="flower-head">🌻</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Seni hep seveceğim 💕" style="--delay: 0.4s; --hue: 350">
+                    <div class="flower-head">🌺</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Hayatımın anlamısın 🌟" style="--delay: 0.5s; --hue: 300">
+                    <div class="flower-head">💐</div>
+                    <div class="flower-stem"></div>
+                </div>
+                <div class="flower" data-msg="Birlikte sonsuza dek ∞" style="--delay: 0.6s; --hue: 330">
+                    <div class="flower-head">🥀</div>
+                    <div class="flower-stem"></div>
+                </div>
+            </div>
+            <div class="flower-message" id="flower-message"></div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="final-section" id="final">
+        <div class="final-content reveal">
+            <div class="big-heart">❤️</div>
+            <h2 class="final-title">Nice Mutlu Aylara</h2>
+            <p class="final-text">
+                Uzakta da olsak, yakında da olsak — kalbim hep seninle.
+            </p>
+            <div class="sparkle-row">
+                <span>✨</span><span>💖</span><span>✨</span><span>💖</span><span>✨</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
