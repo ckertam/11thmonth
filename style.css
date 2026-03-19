@@ -571,8 +571,12 @@ body {
 .clothesline {
     position: relative;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     padding-top: 2rem;
+}
+
+.clothesline:last-child {
+    margin-bottom: 0;
 }
 
 .clothesline-rope {
