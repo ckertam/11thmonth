@@ -10,12 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEnvelope() {
-    const envelope = document.getElementById('envelope');
-    if (!envelope) return;
+    const overlay = document.getElementById('envelope-overlay');
+    const envelope = document.getElementById('envelope-full');
+    if (!overlay || !envelope) return;
+
+    document.body.style.overflow = 'hidden';
 
     envelope.addEventListener('click', () => {
-        if (envelope.classList.contains('opened')) return;
-        envelope.classList.add('opened');
+        if (envelope.classList.contains('opening')) return;
+        envelope.classList.add('opening');
+
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }, 1000);
     });
 }
 
