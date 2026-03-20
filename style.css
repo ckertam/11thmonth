@@ -192,7 +192,7 @@ body {
 }
 
 .title-line.accent {
-    font-style: italic;
+    font-style: oblique 6deg;
     font-weight: 400;
     font-size: clamp(2.5rem, 7vw, 5rem);
 }
@@ -401,7 +401,7 @@ body {
 .message-card .highlight {
     color: var(--bordo);
     font-weight: 500;
-    font-style: italic;
+    font-style: oblique 6deg;
     font-size: 1.1rem;
     padding: 1rem;
     background: var(--bordo-soft);
@@ -862,7 +862,7 @@ body {
 
 .polaroid-caption {
     font-family: 'Dancing Script', cursive;
-    font-style: italic;
+    font-style: oblique 6deg;
     font-size: 1.05rem;
     color: var(--text);
     padding: 10px 4px 14px;
@@ -1028,6 +1028,11 @@ body {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Emojis should never be italic */
+.emoji {
+    font-style: normal;
 }
 
 /* Responsive */
