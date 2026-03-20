@@ -4,7 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setupRevealAnimations();
     setupFlowerInteractions();
     setupCounterAnimation();
+    setupClotheslineRope();
 });
+
+function setupClotheslineRope() {
+    const row = document.querySelector('.polaroid-row');
+    const rope = document.querySelector('.clothesline-rope');
+    if (row && rope) {
+        rope.style.width = row.scrollWidth + 'px';
+    }
+}
 
 function createPetals() {
     const container = document.getElementById('petal-container');

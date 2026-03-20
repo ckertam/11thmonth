@@ -570,32 +570,52 @@ body {
 
 .clothesline {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto 3rem;
+    margin: 0 auto;
     padding-top: 2rem;
 }
 
-.clothesline:last-child {
-    margin-bottom: 0;
+.clothesline-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bordo-light) transparent;
+}
+
+.clothesline-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.clothesline-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.clothesline-scroll::-webkit-scrollbar-thumb {
+    background: var(--bordo-light);
+    border-radius: 3px;
 }
 
 .clothesline-rope {
     position: absolute;
     top: 2rem;
     left: 0;
-    right: 0;
+    width: 100%;
+    min-width: max-content;
     height: 3px;
-    background: linear-gradient(90deg, transparent 0%, #8b7355 5%, #8b7355 95%, transparent 100%);
+    background: #8b7355;
     z-index: 1;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 .polaroid-row {
     display: flex;
-    justify-content: center;
     gap: 2.5rem;
-    flex-wrap: wrap;
     padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-wrap: nowrap;
+    width: max-content;
 }
 
 .polaroid {
@@ -706,15 +726,13 @@ body {
 
 @media (max-width: 800px) {
     .polaroid-row {
-        gap: 2rem;
+        gap: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .polaroid {
         width: 200px;
-    }
-
-    .clothesline-rope {
-        display: none;
     }
 }
 
