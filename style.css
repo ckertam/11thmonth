@@ -1060,12 +1060,48 @@ body {
     70% { transform: translateY(-3px); }
 }
 
+.music-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+}
+
 .music-label {
     font-family: 'Dancing Script', cursive;
     font-size: 0.95rem;
     color: var(--bordo);
-    text-align: center;
-    padding: 4px 0 6px;
+}
+
+.music-toggle {
+    background: none;
+    border: 1px solid rgba(128, 0, 32, 0.15);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+    color: var(--bordo);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.music-toggle:hover {
+    background: var(--bordo-soft);
+}
+
+.music-body {
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    max-height: 200px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.music-player.minimized .music-body {
+    max-height: 0;
+    opacity: 0;
 }
 
 @media (max-width: 500px) {

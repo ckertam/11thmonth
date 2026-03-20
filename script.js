@@ -34,9 +34,21 @@ function startMusic() {
     if (!player) return;
 
     player.innerHTML = `
-        <div class="music-label">🎵 Arkaplanda müziksiz olmaz</div>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1q0S2kXmpWjhzDdmyrtwy4?utm_source=generator&theme=0&autoplay=1" width="300" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+        <div class="music-header">
+            <span class="music-label">🎵 Arkaplanda müziksiz olmaz</span>
+            <button class="music-toggle" id="music-toggle">▼</button>
+        </div>
+        <div class="music-body" id="music-body">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1q0S2kXmpWjhzDdmyrtwy4?utm_source=generator&theme=0&autoplay=1" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+        </div>
     `;
+
+    const toggle = document.getElementById('music-toggle');
+    const body = document.getElementById('music-body');
+    toggle.addEventListener('click', () => {
+        player.classList.toggle('minimized');
+        toggle.textContent = player.classList.contains('minimized') ? '▲' : '▼';
+    });
 
     setTimeout(() => player.classList.add('visible'), 800);
 }
