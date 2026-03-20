@@ -27,6 +27,14 @@ function loadGallery() {
                     </div>
                     <p class="polaroid-caption">${photo.caption}</p>
                 `;
+
+                const photoEl = polaroid.querySelector('.polaroid-photo');
+                photoEl.addEventListener('click', () => {
+                    if (!photoEl.classList.contains('revealed')) {
+                        photoEl.classList.add('revealed');
+                    }
+                });
+
                 row.appendChild(polaroid);
             });
 

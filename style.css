@@ -693,8 +693,9 @@ body {
     width: 100%;
     aspect-ratio: 1;
     overflow: hidden;
-    background: #f0ebe5;
+    background: #1a1a1a;
     position: relative;
+    cursor: pointer;
 }
 
 .polaroid-photo img {
@@ -702,6 +703,32 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    filter: brightness(0);
+    transition: opacity 1.5s ease, filter 2s ease;
+}
+
+.polaroid-photo.revealed img {
+    opacity: 1;
+    filter: brightness(1);
+}
+
+.polaroid-photo::after {
+    content: '📷';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #2a1a1e 0%, #1a0a0e 100%);
+    opacity: 1;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.polaroid-photo.revealed::after {
+    opacity: 0;
 }
 
 .photo-placeholder {
