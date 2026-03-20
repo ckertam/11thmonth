@@ -328,12 +328,12 @@ body {
 }
 
 .envelope-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-size: 1.4rem;
     color: var(--bordo);
     text-align: center;
     line-height: 1.6;
-    letter-spacing: 0.5px;
 }
 
 .envelope-seal {
