@@ -33,27 +33,12 @@ function startMusic() {
     const player = document.getElementById('music-player');
     if (!player) return;
 
-    const playlist = [
-        { id: '1zPaYQuwGXyQQbxbLzmIFf', duration: 30000 },
-        { id: '3IfPBfbx4rcb5GFzkJVw9k', duration: 30000 },
-        { id: '3jM12sAVBL1xjzqbavzQDj', duration: 30000 }
-    ];
+    player.innerHTML = `
+        <div class="music-label">🎵 Bizim şarkımız çalsın</div>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1zPaYQuwGXyQQbxbLzmIFf?utm_source=generator&theme=0" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+    `;
 
-    let current = 0;
-
-    function playTrack(index) {
-        if (index >= playlist.length) return;
-        current = index;
-        const track = playlist[index];
-        player.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0&autoplay=1" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>`;
-
-        if (index < playlist.length - 1) {
-            setTimeout(() => playTrack(index + 1), track.duration);
-        }
-    }
-
-    playTrack(0);
-    setTimeout(() => player.classList.add('visible'), 500);
+    setTimeout(() => player.classList.add('visible'), 800);
 }
 
 function loadGallery() {
