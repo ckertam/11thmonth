@@ -409,6 +409,28 @@ body {
     margin-bottom: 0;
 }
 
+/* Spotify Section */
+.spotify-section {
+    padding: 4rem 2rem;
+    background: var(--cream);
+    text-align: center;
+}
+
+.spotify-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.spotify-embed {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(128, 0, 32, 0.08);
+}
+
 /* Counter Section */
 .counter-section {
     padding: 6rem 2rem;
