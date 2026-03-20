@@ -6,7 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCounterAnimation();
     loadGallery();
     setupMemoryGame();
+    setupEnvelope();
 });
+
+function setupEnvelope() {
+    const envelope = document.getElementById('envelope');
+    if (!envelope) return;
+
+    envelope.addEventListener('click', () => {
+        if (envelope.classList.contains('opened')) return;
+        envelope.classList.add('opened');
+    });
+}
 
 function loadGallery() {
     const tilts = [-3, 2, -1, 2, -2, 3, -2, 1, -3];
