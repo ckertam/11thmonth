@@ -255,11 +255,11 @@ body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: linear-gradient(135deg, #f5e6ea 0%, #e8d0d6 50%, #dbc0c8 100%);
+    background: linear-gradient(160deg, #3d0010 0%, #5c0018 40%, #800020 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
 .envelope-overlay.hidden {
@@ -269,26 +269,32 @@ body {
 }
 
 .envelope-scene {
-    perspective: 1000px;
+    perspective: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .envelope-full {
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .envelope-full:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px) scale(1.02);
 }
 
 .envelope-body {
     position: relative;
-    width: 360px;
-    height: 240px;
-    background: linear-gradient(145deg, #faf5f0 0%, #f0e8e0 100%);
-    border-radius: 6px;
-    box-shadow: 0 15px 50px rgba(128, 0, 32, 0.2), 0 4px 15px rgba(0,0,0,0.08);
-    border: 1px solid rgba(128, 0, 32, 0.06);
+    width: 400px;
+    height: 260px;
+    background: linear-gradient(160deg, #faf6f2 0%, #f2ebe4 60%, #e8dfd6 100%);
+    border-radius: 4px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255,255,255,0.5);
     overflow: visible;
 }
 
@@ -298,22 +304,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 2.5rem;
     z-index: 5;
 }
 
 .envelope-flap-full {
     position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    height: 55%;
-    background: linear-gradient(160deg, #ede5dc 0%, #e2d8ce 100%);
-    clip-path: polygon(0 0, 50% 80%, 100% 0);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52%;
+    background: linear-gradient(170deg, #efe8e0 0%, #e5dbd2 100%);
+    clip-path: polygon(0 0, 50% 75%, 100% 0);
     z-index: 2;
     transform-origin: top center;
     transition: transform 0.7s ease;
-    border-radius: 6px 6px 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .envelope-full.opening .envelope-flap-full {
@@ -321,36 +328,38 @@ body {
 }
 
 .envelope-label {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
     color: var(--bordo);
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
 }
 
 .envelope-seal {
-    font-size: 2.5rem;
-    margin: 0.8rem 0;
-    animation: sealPulse 2s ease-in-out infinite;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: sealPulse 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(128,0,32,0.15));
 }
 
 @keyframes sealPulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    50% { transform: scale(1.12); }
 }
 
 .envelope-hint {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.6;
+    display: none;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 440px) {
     .envelope-body {
-        width: 300px;
-        height: 200px;
+        width: 320px;
+        height: 210px;
+    }
+
+    .envelope-label {
+        font-size: 1.05rem;
     }
 }
 
