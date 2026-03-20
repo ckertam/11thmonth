@@ -4,15 +4,34 @@ document.addEventListener('DOMContentLoaded', () => {
     setupRevealAnimations();
     setupFlowerInteractions();
     setupCounterAnimation();
-    setupClotheslineRope();
+    loadGallery();
 });
 
-function setupClotheslineRope() {
-    const row = document.querySelector('.polaroid-row');
-    const rope = document.querySelector('.clothesline-rope');
-    if (row && rope) {
-        rope.style.width = row.scrollWidth + 'px';
-    }
+function loadGallery() {
+    const tilts = [-3, 2, -1, 2, -2, 3, -2, 1, -3];
+
+    fetch('photos/captions.json')
+        .then(res => res.json())
+        .then(photos => {
+            const row = document.getElementById('polaroid-row');
+            photos.forEach((photo, i) => {
+                const tilt = tilts[i % tilts.length];
+                const polaroid = document.createElement('div');
+                polaroid.className = 'polaroid';
+                polaroid.style.setProperty('--tilt', tilt + 'deg');
+                polaroid.innerHTML = `
+                    <div class="clip"></div>
+                    <div class="polaroid-photo">
+                        <img src="photos/${photo.file}" alt="${photo.caption}">
+                    </div>
+                    <p class="polaroid-caption">${photo.caption}</p>
+                `;
+                row.appendChild(polaroid);
+            });
+
+            const rope = document.querySelector('.clothesline-rope');
+            if (rope) rope.style.width = row.scrollWidth + 'px';
+        });
 }
 
 function createPetals() {
