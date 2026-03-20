@@ -34,8 +34,8 @@ function startMusic() {
     if (!player) return;
 
     player.innerHTML = `
-        <div class="music-label">🎵 Bizim şarkımız çalsın</div>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1zPaYQuwGXyQQbxbLzmIFf?utm_source=generator&theme=0" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+        <div class="music-label">🎵 Bizim şarkılarımız</div>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1q0S2kXmpWjhzDdmyrtwy4?utm_source=generator&theme=0" width="300" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
     `;
 
     setTimeout(() => player.classList.add('visible'), 800);
