@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFlowerInteractions();
     setupCounterAnimation();
     loadGallery();
+    setupMemoryGame();
 });
 
 function loadGallery() {
@@ -207,4 +208,99 @@ function animateCounter(element, target) {
     }
 
     requestAnimationFrame(update);
+}
+
+function setupMemoryGame() {
+    const emojis = ['🌹', '🐾', '🤍', '🌺'];
+    const cards = [...emojis, ...emojis];
+    let flipped = [];
+    let matched = 0;
+    let locked = false;
+
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+
+    const board = document.getElementById('game-board');
+    const status = document.getElementById('game-status');
+
+    cards.forEach((emoji, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.idx = idx;
+        card.dataset.emoji = emoji;
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-face card-front">?</div>
+                <div class="card-face card-back">${emoji}</div>
+            </div>
+        `;
+        card.addEventListener('click', () => flipCard(card));
+        board.appendChild(card);
+    });
+
+    function flipCard(card) {
+        if (locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+        card.classList.add('flipped');
+        flipped.push(card);
+
+        if (flipped.length === 2) {
+            locked = true;
+            const [a, b] = flipped;
+
+            if (a.dataset.emoji === b.dataset.emoji) {
+                a.classList.add('matched');
+                b.classList.add('matched');
+                matched++;
+                flipped = [];
+                locked = false;
+
+                if (matched === emojis.length) {
+                    status.textContent = 'Hepsini buldun! 🎉';
+                    setTimeout(showSurprise, 600);
+                }
+            } else {
+                setTimeout(() => {
+                    a.classList.remove('flipped');
+                    b.classList.remove('flipped');
+                    flipped = [];
+                    locked = false;
+                }, 800);
+            }
+        }
+    }
+
+    function showSurprise() {
+        const surprise = document.getElementById('game-surprise');
+        surprise.classList.add('revealed');
+        burstCelebration();
+    }
+
+    function burstCelebration() {
+        const emojis = ['🎉', '🤍', '✨', '🌹', '🐾'];
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const el = document.createElement('div');
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.cssText = `
+                    position: fixed;
+                    left: ${20 + Math.random() * 60}%;
+                    top: ${20 + Math.random() * 60}%;
+                    font-size: ${20 + Math.random() * 20}px;
+                    pointer-events: none;
+                    z-index: 10000;
+                    transition: all 1.5s ease-out;
+                    opacity: 1;
+                `;
+                document.body.appendChild(el);
+                requestAnimationFrame(() => {
+                    el.style.transform = `translateY(${-80 - Math.random() * 80}px) scale(0.3)`;
+                    el.style.opacity = '0';
+                });
+                setTimeout(() => el.remove(), 1500);
+            }, i * 100);
+        }
+    }
 }

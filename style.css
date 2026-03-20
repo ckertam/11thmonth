@@ -736,6 +736,142 @@ body {
     }
 }
 
+/* Memory Game */
+.game-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--bordo-soft) 100%);
+    text-align: center;
+}
+
+.game-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.game-subtitle {
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 380px;
+    margin: 0 auto 1.5rem;
+}
+
+.card {
+    aspect-ratio: 1;
+    perspective: 600px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    border-radius: 14px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card.matched .card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 20px rgba(128, 0, 32, 0.3);
+}
+
+.card.matched {
+    animation: matchPop 0.4s ease;
+}
+
+@keyframes matchPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.card-front {
+    background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-deep) 100%);
+    color: rgba(255,255,255,0.3);
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(128, 0, 32, 0.2);
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+    font-size: 2.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.game-status {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--bordo-light);
+    min-height: 2rem;
+    transition: opacity 0.3s ease;
+}
+
+.game-surprise {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s ease, opacity 0.8s ease, margin 0.8s ease;
+    margin-top: 0;
+}
+
+.game-surprise.revealed {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 2rem;
+}
+
+.surprise-content {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 10px 40px rgba(128, 0, 32, 0.12);
+    animation: surprisePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes surprisePulse {
+    0% { box-shadow: 0 10px 40px rgba(128, 0, 32, 0.12); }
+    100% { box-shadow: 0 15px 50px rgba(128, 0, 32, 0.2); }
+}
+
+.surprise-photo {
+    width: 250px;
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.surprise-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: var(--bordo);
+}
+
 /* Reveal Animation */
 .reveal {
     opacity: 0;
