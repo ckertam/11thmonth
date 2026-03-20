@@ -20,11 +20,22 @@ function setupEnvelope() {
         if (envelope.classList.contains('opening')) return;
         envelope.classList.add('opening');
 
+        startMusic();
+
         setTimeout(() => {
             overlay.classList.add('hidden');
             document.body.style.overflow = '';
         }, 1000);
     });
+}
+
+function startMusic() {
+    const player = document.getElementById('music-player');
+    if (!player) return;
+
+    player.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1zPaYQuwGXyQQbxbLzmIFf?utm_source=generator&theme=0&autoplay=1" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>`;
+
+    setTimeout(() => player.classList.add('visible'), 500);
 }
 
 function loadGallery() {
