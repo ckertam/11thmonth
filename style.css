@@ -289,7 +289,7 @@ body {
 }
 
 .message-card h2 {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 2.5rem;
     color: var(--bordo);
     margin-bottom: 1.5rem;
@@ -314,7 +314,7 @@ body {
 }
 
 .message-card .signature {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 1.8rem;
     color: var(--bordo);
     text-align: right;
@@ -368,7 +368,7 @@ body {
 }
 
 .counter-note {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
     color: var(--bordo-light);
     margin-top: 1rem;
@@ -454,7 +454,7 @@ body {
 
 .flower-message {
     min-height: 60px;
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
     color: var(--bordo);
     transition: all 0.4s ease;
@@ -743,7 +743,8 @@ body {
 }
 
 .polaroid-caption {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
+    font-style: italic;
     font-size: 1.05rem;
     color: var(--text);
     padding: 10px 4px 14px;
@@ -851,7 +852,7 @@ body {
 }
 
 .game-status {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 1.3rem;
     color: var(--bordo-light);
     min-height: 2rem;
@@ -894,7 +895,7 @@ body {
 }
 
 .surprise-text {
-    font-family: 'Lora', serif;
+    font-family: 'Satisfy', cursive;
     font-size: 1.4rem;
     color: var(--bordo);
 }
